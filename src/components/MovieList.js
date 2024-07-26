@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MovieItem from './MovieItem';
 
 const MovieList = ({ movies }) => {
@@ -17,7 +18,9 @@ const MovieList = ({ movies }) => {
   return (
     <div>
       {movieList.map(movie => (
-        <MovieItem key={movie.id} movie={movie} />
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
+          <MovieItem movie={movie} />
+        </Link>
       ))}
     </div>
   );
