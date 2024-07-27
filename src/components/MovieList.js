@@ -11,35 +11,67 @@ const CardContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
- text-decoration: none;
+  text-decoration: none;
   color: inherit;
   flex: 1 1 18%;
   max-width: 18%;
   margin: 10px;
 `;
 
-const MovieList = ({ movies }) => {
-  const [popularMovies, setPopularMovies] = useState([]);
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const MovieList = ({ query }) => {
+  const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    if (!movies) {
-      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
-        .then(response => response.json())
-        .then(data => setPopularMovies(data.results));
-    }
-  }, [movies]);
+    const fetchMovies = async () => {
+      const url = query 
+        ? `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${query}&page=${currentPage}`
+        : `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${currentPage}`;
 
-  const movieList = movies || popularMovies;
+      const response = await fetch(url);
+      const data = await response.json();
+      setMovies(data.results);
+      setTotalPages(data.total_pages);
+    };
+
+    fetchMovies();
+  }, [currentPage, query]);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
     <div>
       <CardContainer>
-        {movieList.map(movie => (
+        {movies.map(movie => (
           <StyledLink to={`/movie/${movie.id}`} key={movie.id}>
             <MovieItem movie={movie} />
           </StyledLink>
         ))}
       </CardContainer>
+      <PaginationContainer>
+        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </PaginationContainer>
     </div>
   );
 };

@@ -16,19 +16,17 @@ const PageTitle = styled.h1`
 `;
 
 const HomePage = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useState('');
 
   const handleSearch = (query) => {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${query}`)
-      .then(response => response.json())
-      .then(data => setSearchResults(data.results));
+    setQuery(query);
   };
 
   return (
     <PageContainer>
       <PageTitle>Popular Movies</PageTitle>
       <SearchBar onSearch={handleSearch} />
-      <MovieList movies={searchResults.length > 0 ? searchResults : null} />
+      <MovieList query={query} />
     </PageContainer>
   );
 };
