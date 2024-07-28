@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Projeto movies-react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto tem como objetivo o consumo de uma API para exibir os filmes mais populares.
 
-## Available Scripts
+## Para rodar o projeto localmente siga os seguintes passos:
+-------------------------------------------------------------
+Observação:
+* Certifique-se de que tenha o node instalado
+-------------------------------------------------------------
+ 1- Clone este repositorio
+ 2 - É preciso ter uma chave de api publica do TMDb para utilizar no projeto, para conseguir visite o site: https://www.themoviedb.org/documentation/api
+ 3 - Copie o arquivo ".env.example", cole na raiz do projeto e renome para ".env.local" ou copie o comando:
+   ```sh
+  cp .env.example .env.local
+  ```
+ 4 - Com a chave da api em mãos, coloque-a no arquivo que você copiou (.env.local):
+  REACT_APP_TMDB_API_KEY="sua_chave_aqui"
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 5 - Execute o comando para instalar as dependencias do projeto:
+   ```sh
+  npm install
+  ```
+ 6 - Digite o seguinte comando para iniciar o modo de desenvolvimento:
+  ```sh
+  npm start
+  ```
+7 - Apos o comando anterior, a aplicação irá abrir no navegador. Caso não, abra você pode acessar na seguinte url:
+  ```sh
+  http://localhost:3000
+  ```
