@@ -16,6 +16,7 @@ Observação:
   cp .env.example .env.local
   ```
  * Com a chave da api em mãos, coloque-a no arquivo que você copiou (.env.local):
+
    REACT_APP_TMDB_API_KEY="sua_chave_aqui"
 
  * Execute o comando para instalar as dependencias do projeto:
@@ -27,6 +28,6 @@ Observação:
    npm start
   ```
 * Apos o comando anterior, a aplicação irá abrir no navegador. Caso não, abra você pode acessar na seguinte url:
-   ```sh
-   http://localhost:3000
-   ```
+```sh
+http://localhost:3000
+```
